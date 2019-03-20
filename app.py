@@ -4,7 +4,7 @@ import logging
 import requests
 from flask import Flask, render_template, request
 
-from paytm_checksum import generate_checksum
+from paytm_checksum import generate_checksum, verify_checksum
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -56,8 +56,13 @@ def index():
 @app.route('/callback', methods=["GET", "POST"])
 def callback():
     # log the callback response payload returned:
-    callback_response = request.form
+    callback_response = request.form.to_dict()
     logging.info("Transaction response: {callback_response}".format(callback_response=callback_response))
+
+    # verify callback response checksum:
+    checksum_verification_status = verify_checksum(callback_response, MERCHANT_KEY,
+                                                   callback_response.get("CHECKSUMHASH"))
+    logging.info("checksum_verification_status: {check_status}".format(check_status=checksum_verification_status))
 
     # verify transaction status:
     transaction_verify_payload = {
@@ -72,4 +77,5 @@ def callback():
 
     return render_template("callback.html",
                            callback_response=callback_response,
+                           checksum_verification_status=checksum_verification_status,
                            verification_response=verification_response.json())

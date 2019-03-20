@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <style type="text/css" media="screen">
+    form article label {
+      display: block;
+      margin: 5px;
+    }
+
+    form .submit {
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <h3>These are all the data params to submit (POST) to initiate transaction</h3>
+    <form method="post" action="{{ url }}">
+        <dl>
+            {% for key, value in data.items() %}
+                <label>{{ key }}: {{ value }}</label></br>
+                <input readonly type="hidden" name="{{ key }}" value="{{ value }}">
+            {% endfor %}
+        </dl>
+        <input class="submit" type="submit">
+    </form>
+</body>
+</html>

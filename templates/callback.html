@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <style type="text/css" media="screen">
+    div {
+      display: block;
+      margin: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h3>These are all returned response params which should be preferably stored in a database for record:</h3>
+  <ul>
+      {% for key, value in callback_response.items() %}
+      <li>{{ key }}: {{ value }}</li>
+      {% endfor %}
+  </ul>
+  <hr>
+  <h3>Response params for transaction verification response:</h3>
+  <ul>
+      {% for key, value in verification_response.items() %}
+      <li>{{ key }}: {{ value }}</li>
+      {% endfor %}
+  </ul>
+</body>
+</html>

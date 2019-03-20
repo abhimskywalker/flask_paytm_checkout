@@ -21,10 +21,10 @@ easy_install pycrypto
 ### 2. Get merchant credentials
 - Go to https://dashboard.paytm.com/next/apikeys to get your API keys
 > These API keys consists of:
-MID (Merchant ID) - Unique identifier issued to every merchant.
-Merchant Key - This is a unique secret key used for secure encryption of every request. This needs to be kept on server side and should never be shared with anyone.
-Industry Type ID - This is part of bank and paymode configuration done wrt to an account.
-Website - This parameter is used to support multiple callback URLs to post the transaction response. Each URL needs to be mapped to a website parameter.
+> - MID (Merchant ID): Unique identifier issued to every merchant.
+> - Merchant Key: This is a unique secret key used for secure encryption of every request. This needs to be kept on server side and should never be shared with anyone.
+> - Industry Type ID: This is part of bank and paymode configuration done wrt to an account.
+> - Website: This parameter is used to support multiple callback URLs to post the transaction response. Each URL needs to be mapped to a website parameter.
 - Copy the test MERCHANT_ID and test MERCHANT_KEY for testing mode in the Staging configs section. (While production configs are commented out)
 - To do actual payments you can copy the MERCHANT_ID, MERCHANT_KEY, WEBSITE_NAME and INDUSTRY_TYPE_ID from Production API details tab. (Please comment out staging configs for this) 
 - Replace the variables in `app.py`

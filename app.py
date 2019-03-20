@@ -67,7 +67,8 @@ def callback():
     }
     url = BASE_URL + '/order/status'
     verification_response = requests.post(url=url, json=transaction_verify_payload)
-    logging.info("Verification response: {verification_response}".format(verification_response=verification_response))
+    logging.info("Verification response: {verification_response}".format(
+        verification_response=verification_response.json()))
 
     return render_template("callback.html",
                            callback_response=callback_response,

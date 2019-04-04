@@ -3,7 +3,7 @@ Integrate Paytm Checkout to your Python Flask website to provide a secure, PCI-c
 
 # Setup steps
 You’ll need to have the following prerequisites before we go any further:
-- A [Paytm Merchant](https://business.paytm.com/) account
+- A [Paytm Business](https://business.paytm.com/) account
 - A [Python](http://www.python.org/) environment
 
 ### 1. Basic app setup

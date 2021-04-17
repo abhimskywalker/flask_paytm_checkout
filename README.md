@@ -17,6 +17,7 @@ pip install flask
 pip install requests
 easy_install pycrypto
 ```
+#if easy_install pycrypto don't do its work then try easy_install pycryptodome
 
 ### 2. Get merchant credentials
 - Go to https://dashboard.paytm.com/next/apikeys to get your API keys
